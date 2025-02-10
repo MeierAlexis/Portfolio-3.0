@@ -1,0 +1,51 @@
+---
+const { title, description, technologies, link } = Astro.props;
+import '../styles/global.css';
+---
+
+<a
+  class="group flex flex-row bg-gray-200 dark:bg-gray-950 xl:p-10 pb-5 gap-8 rounded-lg border border-transparent hover:border-gray-500 hover:bg-gray-300 dark:text-gray-100 dark:hover:bg-gray-900 hover:shadow-md hover:text-green-600 dark:hover:text-orange-300 relative"
+  href={link} target="_blank"
+>
+  <img
+    class="w-40 max-w-35 min-w-35 h-20 border-2 border-gray-500 rounded-md group-hover:border-gray-400"
+    src={`./${title.toLowerCase()}.webp`}
+  />
+  <div class="flex flex-col gap-2 cursor-pointer">
+    <div class="flex items-center gap-2">
+      <h5 class="text-xl font-semibold">{title}</h5>
+      <svg
+        class="w-5 h-5 text-green-600 dark:text-orange-200 transform -rotate-45 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M5 12h14M12 5l7 7-7 7"
+        />
+      </svg>
+    </div>
+    <p class="dark:text-gray-300 text-gray-700 xl:text-base text-sm">{description}</p>
+    <div class="flex flex-wrap gap-2">
+      {Array.isArray(technologies) &&
+        technologies.map((tech) => (
+          <div
+            class="flex items-center p-1 gap-1 rounded-2xl bg-green-300 border border-green-600 dark:border-orange-400 dark:bg-orange-200 w-auto px-2"
+          >
+            <img
+              class="w-5 h-5 brightness-0 saturate-100"
+              src={`./${tech.toLowerCase()}.svg`}
+              alt={tech}
+            />
+            <p class="text-green-950 dark:text-orange-800 font-semibold">
+              {tech}
+            </p>
+          </div>
+        ))}
+    </div>
+  </div>
+</a>

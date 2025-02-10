@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string
+  institution: string
+  description: string
+  link?: string
+  date: string
+  isCurrent?: boolean
+}
+
+const { title, institution, description, link, date, isCurrent } = Astro.props
+---
+<div class="relative mx-10 pb-12 md:grid-cols-4 md:gap-36 md:space-x-2 grid 
+  before:absolute before:left-[73px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] sm:before:block before:hidden">
+  
+  <!-- Bullet (•) oculto en pantallas pequeñas -->
+  <span class="text-gray-500 text-5xl left-[65px] rounded-full absolute sm:block hidden">
+    &bull;
+  </span>
+
+  <div class="relative pb-12 md:col-span-1 ">
+    <div class="sticky top-0"></div>
+  </div>
+
+  <div class="relative flex-col gap-0.5 pb-2 text-gray-700 dark:text-gray-300 md:col-span-3 flex">
+    <div class="flex items-center gap-2">
+      <h3 class="text-xl font-bold text-gray-800 dark:text-orange-200">{title}</h3>
+
+      {isCurrent && (
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 dark:bg-orange-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500 dark:bg-orange-500"></span>
+        </span>
+      )}
+    </div>
+
+    <a class="font-semibold text-lg text-gray-600 dark:text-white hover:text-green-400 dark:hover:text-orange-400" href=`${link}` target="_blank">{institution}</a>
+    <p>{description}</p>
+    
+    <time class="text-sm text-gray-600/80 dark:text-white/80">{date}</time>
+  </div>
+</div>

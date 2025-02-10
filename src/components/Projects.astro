@@ -1,0 +1,12 @@
+---
+import '../styles/global.css'
+import Project from './Project.astro'
+---
+
+<section id="projects" class="flex flex-col bg-gray-200 dark:bg-gray-950 mt-20 px-6" >
+<h3 class="text-4xl font-bold bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900  dark:from-orange-100 dark:via-orange-200 dark:to-orange-300 bg-clip-text text-transparent mb-8">Projects</h3>
+<Project title="Momentum" description="A productivity platform designed to help users set, track, and achieve their goals efficiently. Features include an intuitive goal management system, habit tracking, and a Wheel of Life for visualizing personal growth. Users can update progress metrics, modify existing habits, and create new ones seamlessly." technologies={["React","PostgreSQL","TypeScript","NodeJs","Git"]} link="https://github.com/MeierAlexis/Momentum"/>
+<Project title="Tetris" description="A university project where we built a modernized version of the classic Tetris game. This project explores core game development concepts such as collision detection and game loop optimization" technologies={["C++"]} link="https://github.com/MeierAlexis/Tetris"/>
+<Project title="Weather-App" description="A weather forecasting app that allows users to check the weather conditions for upcoming days with a clean and intuitive interface. Features include real-time weather updates, detailed forecasts, and temperature trends to help users plan ahead" technologies={["Git","Javascript","CSS","HTML"]} link="https://meieralexis.github.io/Weather-app/"/>
+<Project title="Portfolio" description="A personal website to show off my skills and projects" technologies={["Astro", "TailwindCSS", "TypeScript","Bun", "Git"]} link="https://github.com/MeierAlexis/Portfolio" /> 
+</section> 

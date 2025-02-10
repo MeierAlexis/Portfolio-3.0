@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+html.dark {
+  background-color:
+  color: #fff;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
